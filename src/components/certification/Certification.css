@@ -4,3 +4,8 @@
     transition: .5s;
 
 }
+@media (max-width:600px) {
+    .certification{
+        min-width: 140px;
+    }
+}
