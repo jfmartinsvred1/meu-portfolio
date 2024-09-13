@@ -50,11 +50,11 @@ function App() {
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", name: "HTML" },
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", name: "CSS" },
     {
-      icon: "../src/assets/images/excel.png",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Microsoft_Excel_2013.png",
       name: "Excel"
     },
     {
-      icon: "../src/assets/images/word.png",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Microsoft_Word_2013.png",
       name: "Word"
     }
   ];
@@ -122,7 +122,7 @@ function App() {
         <div className='d-flex align-items-center justify-content-evenly w-100'>
           <Dropdown className='iconHeader'>
             <Dropdown.Toggle variant={colors.background} id="dropdown-basic">
-              <img src="../src/assets/images/menu.png" alt="Menu" width="32px" />
+              <img src="https://img.icons8.com/ios-filled/50/000000/menu--v1.png" alt="Menu" width="32px" />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -134,7 +134,7 @@ function App() {
           </Dropdown>
           <img src="https://github.com/jfmartinsvred1.png" alt="FotoMinha" width="128px" className='rounded-5' />
           <div className='iconHeader'>
-            <button onClick={() => updateTheme()} className='btn bg-transparent align-content-center'><img width="32px" src={theme === 'dark' ? '../src/assets/images/cloud.png' : '../src/assets/images/dark.png'} alt="Logo" /> </button>
+            <button onClick={() => updateTheme()} className='btn bg-transparent align-content-center'><img width="32px" src={theme === 'dark' ? 'https://img.icons8.com/ios-filled/50/000000/sun.png' : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png'} alt="Logo" /> </button>
           </div>
         </div>
         <h4 className={'text-'+colors.titles}>Seja bem-vindo a minha página!</h4>
