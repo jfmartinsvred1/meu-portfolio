@@ -119,9 +119,9 @@ function App() {
       style={{ backgroundColor: colors.background }}
     >
       <div className='d-flex flex-column align-items-center justify-content-center w-100 gap-5 my-5 animate__animated animate__bounceInDown'>
-        <div className='d-flex align-items-center justify-content-between w-100'>
-          <Dropdown>
-            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+        <div className='d-flex align-items-center justify-content-evenly w-100'>
+          <Dropdown className='iconHeader'>
+            <Dropdown.Toggle variant={colors.background} id="dropdown-basic">
               <img src="../src/assets/images/menu.png" alt="Menu" width="32px" />
             </Dropdown.Toggle>
 
@@ -133,7 +133,7 @@ function App() {
             </Dropdown.Menu>
           </Dropdown>
           <img src="https://github.com/jfmartinsvred1.png" alt="FotoMinha" width="128px" className='rounded-5' />
-          <div>
+          <div className='iconHeader'>
             <button onClick={() => updateTheme()} className='btn bg-transparent align-content-center'><img width="32px" src={theme === 'dark' ? '../src/assets/images/cloud.png' : '../src/assets/images/dark.png'} alt="Logo" /> </button>
           </div>
         </div>
@@ -143,7 +143,7 @@ function App() {
         <h3 className={'text-'+colors.titles}>Sobre Mim</h3>
         <div className='d-flex flex-column text-start justify-content-center align-items-center gap-2'>
           <p className={theme === 'dark' ? "text-light user-select-none text-break text-sobre" : "text-dark user-select-none text-break text-sobre"}>
-            Meu nome é João Victor Fernandes Martins sou um estudante de Sistemas de Informação, atualmente no 4º período da faculdade.
+            Meu nome é João Victor Fernandes Martins sou um estudante de Sistemas de Informação, atualmente no 4º período da faculdade UniFOA.
             Tenho paixão por
             tecnologia e programação, com foco em desenvolvimento de software , engenharia de sistemas e área de
             suporte de TI. Venho adquirindo atraves desses anos de estudo e treinamento contínuo, conhecimento e
@@ -176,7 +176,7 @@ function App() {
       </div>
       <div id='obj' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
         <h4 className={'text-'+colors.titles}>Objetivos</h4>
-        <p className={theme === 'dark' ? "text-light user-select-none text-break text-sobre" : "text-dark user-select-none text-break text-sobre"}> 
+        <p className={"user-select-none text-break text-sobre text-"+colors.texts}> 
             Meu objetivo atualmente é ingressar em um estágio na area de desenvolvimento de sofware.
         </p>
       </div>
