@@ -1,10 +1,12 @@
+import { Colors } from "../../App";
 import { CertificationT } from "../../types"
 import './Certification.css'
 import 'animate.css';
 type CertificationProps={
-    certification:CertificationT
+    certification:CertificationT,
+    colors:Colors
 }
-const Certification = ({certification}:CertificationProps) =>{
+const Certification = ({certification,colors}:CertificationProps) =>{
 
     
     function handleClick() {
@@ -15,8 +17,8 @@ const Certification = ({certification}:CertificationProps) =>{
         }
     }
     return(
-        <div onClick={()=>handleClick()} className="d-flex flex-column w-25 bg-dark p-3 rounded-2 certification ">
-            <h6 className="text-light user-select-none text-break">{certification.name}</h6>
+        <div onClick={()=>handleClick()} className={"d-flex flex-column w-25 p-3 rounded-2 certification bg-"+colors.containers}>
+            <h6 className={"user-select-none text-break text-"+colors.texts}>{certification.name}</h6>
         </div>
     )
 }

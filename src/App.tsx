@@ -18,12 +18,24 @@ export type TechO = {
   icon: string,
   name: string
 }
-
+export type Colors = {
+    titles:string,
+    texts:string,
+    background:string,
+    containers:string
+}
 function App() {
 
   const [gitHubRepos, setGitHubRepos] = useState<ReposGit[]>([]);
 
   const [theme, setTheme] = useState<string>('dark');
+
+  const colors:Colors={
+    titles:theme==='dark'?'light':'"#343a40"',
+    texts:theme==='dark'?'light':'"#343a40"',
+    background:theme==='dark'?"#343a40":'white',
+    containers:theme==='dark'?'dark':"light"
+  }
 
   const techs: TechO[] = [
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", name: "C#" },
@@ -86,6 +98,9 @@ function App() {
     { name: "C#: dominando Orientação a Objetos", link: "https://cursos.alura.com.br/certificate/9d5b1631-8bdc-443f-98bb-edc1c3dc8076?lang=pt_BR" }
   ];
 
+  useEffect(()=>{
+
+  },[theme])
 
 
   function updateTheme() {
@@ -101,7 +116,7 @@ function App() {
   }, [])
   return (
     <div className='d-flex flex-column justify-content-between align-items-center p-2 secondary app '
-      style={theme === 'dark' ? { backgroundColor: "#343a40" } : { backgroundColor: "white" }}
+      style={{ backgroundColor: colors.background }}
     >
       <div className='d-flex flex-column align-items-center justify-content-center w-100 gap-5 my-5 animate__animated animate__bounceInDown'>
         <div className='d-flex align-items-center justify-content-between w-100'>
@@ -117,15 +132,15 @@ function App() {
               <Dropdown.Item href="#obj" >Meus Objetivos</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <img src="https://github.com/jfmartinsvred1.png" alt="FotoMinha" width="256px" className='rounded-5' />
+          <img src="https://github.com/jfmartinsvred1.png" alt="FotoMinha" width="128px" className='rounded-5' />
           <div>
             <button onClick={() => updateTheme()} className='btn bg-transparent align-content-center'><img width="32px" src={theme === 'dark' ? '../src/assets/images/cloud.png' : '../src/assets/images/dark.png'} alt="Logo" /> </button>
           </div>
         </div>
-        <h4 className='text-light'>Seja bem-vindo a minha página!</h4>
+        <h4 className={'text-'+colors.titles}>Seja bem-vindo a minha página!</h4>
       </div>
       <div className='d-flex align-items-center flex-column justify-content-center w-100 text-center my-5 gap-5 animate__animated animate__bounceInDown'>
-        <h3 className='text-light'>Sobre Mim</h3>
+        <h3 className={'text-'+colors.titles}>Sobre Mim</h3>
         <div className='d-flex flex-column text-start justify-content-center align-items-center gap-2'>
           <p className={theme === 'dark' ? "text-light user-select-none text-break text-sobre" : "text-dark user-select-none text-break text-sobre"}>
             Meu nome é João Victor Fernandes Martins sou um estudante de Sistemas de Informação, atualmente no 4º período da faculdade.
@@ -148,19 +163,19 @@ function App() {
         </div>
       </div>
       <div id='techs' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className='text-light'>Tecnologias Conhecidas</h4>
+        <h4 className={'text-'+colors.titles}>Tecnologias Conhecidas</h4>
         <Techs techsO={techs} />
       </div>
       <div id='certifications' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className='text-light'>Meus Cursos E Certificados</h4>
-        <Certifications certifications={certifications} />
+        <h4 className={'text-'+colors.titles}>Meus Cursos E Certificados</h4>
+        <Certifications colors={colors}  certifications={certifications} />
       </div>
       <div id='repos' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className='text-light'>Meus Repositórios</h4>
-        <Repos theme={theme} repos={gitHubRepos} />
+        <h4 className={'text-'+colors.titles}>Meus Repositórios</h4>
+        <Repos colors={colors} theme={theme} repos={gitHubRepos} />
       </div>
       <div id='obj' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className='text-light'>Objetivos</h4>
+        <h4 className={'text-'+colors.titles}>Objetivos</h4>
         <p className={theme === 'dark' ? "text-light user-select-none text-break text-sobre" : "text-dark user-select-none text-break text-sobre"}> 
             Meu objetivo atualmente é ingressar em um estágio na area de desenvolvimento de sofware.
         </p>

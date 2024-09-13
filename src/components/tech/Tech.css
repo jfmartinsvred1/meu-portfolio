@@ -1,4 +1,5 @@
 .tech:hover{
     animation: rubberBand;
     animation-duration: 2s;
+    cursor: pointer;
 }
