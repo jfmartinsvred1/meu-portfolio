@@ -50,11 +50,11 @@ function App() {
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", name: "HTML" },
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", name: "CSS" },
     {
-      icon: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Microsoft_Excel_2013.png",
+      icon: "https://img.icons8.com/?size=100&id=117561&format=png&color=000000",
       name: "Excel"
     },
     {
-      icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Microsoft_Word_2013.png",
+      icon: "https://img.icons8.com/?size=100&id=13674&format=png&color=000000",
       name: "Word"
     }
   ];
@@ -156,8 +156,8 @@ function App() {
             primeira oportunidade e isso me impulsiona a superar obstáculos e a buscar soluções criativas e práticas.
           </p>
           <div className='d-flex gap-3'>
-            <a target='_blank' href="https://www.linkedin.com/in/jfmartinss21/"><img src="../src/assets/images/linkedin.png" alt="Github" width="32px" className='icon1' /></a>
-            <a target='_blank' href="https://github.com/jfmartinsvred1"><img src="../src/assets/images/github.png" alt="Github" width="32px" className='icon2' /></a>
+            <a target='_blank' href="https://www.linkedin.com/in/jfmartinss21/"><img src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="Github" width="32px" className='icon1' /></a>
+            <a target='_blank' href="https://github.com/jfmartinsvred1"><img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="Github" width="32px" className='icon2' /></a>
           </div>
 
         </div>
