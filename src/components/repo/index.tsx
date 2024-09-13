@@ -15,7 +15,7 @@ const Repo = ({ repo,showMoreRepo,colors }: RepoProps) => {
         <>
             <div onClick={()=>{showMoreRepo(repo)}} className={"shadow p-3 mb-5 gap-4 rounded repo d-flex flex-column justify-content-center align-items-center bg-"+colors.containers+" text-"+colors.texts}>
                 <h5 className="text-break">{repo.name}</h5>
-                <a className={"linkRepo text-decoration-none text-"+colors.texts} href={repo.html_url}>Ir para o repo</a>
+                <a  className={"linkRepo text-decoration-none text-"+colors.texts} target='_blank'  href={repo.html_url}>Ir para o repo</a>
                 <p>Linguagem: {repo.language}</p>
             </div>
         </>
