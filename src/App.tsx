@@ -38,11 +38,11 @@ function App() {
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", name: "HTML" },
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", name: "CSS" },
     {
-      icon: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Microsoft_Excel_2013.png",
+      icon: "../src/assets/images/excel.png",
       name: "Excel"
     },
     {
-      icon: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Microsoft_Word_2013.png",
+      icon: "../src/assets/images/word.png",
       name: "Word"
     }
   ];
@@ -104,7 +104,7 @@ function App() {
       style={theme === 'dark' ? { backgroundColor: "#343a40" } : { backgroundColor: "white" }}
     >
       <div className='d-flex flex-column align-items-center justify-content-center w-100 gap-5 my-5 animate__animated animate__bounceInDown'>
-        <div className='d-flex align-items-center justify-content-between flex-wrap w-100'>
+        <div className='d-flex align-items-center justify-content-between w-100'>
           <Dropdown>
             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               <img src="../src/assets/images/menu.png" alt="Menu" width="32px" />
@@ -114,6 +114,7 @@ function App() {
               <Dropdown.Item href="#techs" >Tecnologias Conhecidas</Dropdown.Item>
               <Dropdown.Item href="#certifications" >Meus Cursos E Certificados</Dropdown.Item>
               <Dropdown.Item href="#repos" >Meus Repositórios</Dropdown.Item>
+              <Dropdown.Item href="#obj" >Meus Objetivos</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <img src="https://github.com/jfmartinsvred1.png" alt="FotoMinha" width="256px" className='rounded-5' />
@@ -157,6 +158,12 @@ function App() {
       <div id='repos' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
         <h4 className='text-light'>Meus Repositórios</h4>
         <Repos theme={theme} repos={gitHubRepos} />
+      </div>
+      <div id='obj' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
+        <h4 className='text-light'>Objetivos</h4>
+        <p className={theme === 'dark' ? "text-light user-select-none text-break text-sobre" : "text-dark user-select-none text-break text-sobre"}> 
+            Meu objetivo atualmente é ingressar em um estágio na area de desenvolvimento de sofware.
+        </p>
       </div>
     </div>
   )
