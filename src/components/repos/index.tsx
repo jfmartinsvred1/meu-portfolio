@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { ReposGit } from "../../types"
 import Repo from "../repo"
 import './repos.css'
@@ -12,7 +11,7 @@ const Repos = ({ repos, theme }: ReposProps) => {
 
     function showMoreRepo() {
         //Abrir outra aba com o repo especifico
-        console.log('Indo pra repo...')
+        console.log('Indo pra repo...'+theme)
     }
     return (
         <>
