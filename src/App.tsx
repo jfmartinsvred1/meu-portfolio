@@ -7,6 +7,7 @@ import Techs from './components/techs';
 import Certifications from './components/certifications';
 import 'animate.css';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Text from './components/text';
 
 export type Infos = {
   about: string,
@@ -98,6 +99,8 @@ function App() {
     { name: "C#: dominando Orientação a Objetos", link: "https://cursos.alura.com.br/certificate/9d5b1631-8bdc-443f-98bb-edc1c3dc8076?lang=pt_BR" }
   ];
 
+  const textSobre = "Meu nome é João Victor Fernandes Martins sou um estudante de Sistemas de Informação, atualmente no 4º período da faculdade UniFOA. Tenho paixão por tecnologia e programação, com foco em desenvolvimento de software e engenharia de sistemas. Venho adquirindo atraves desses anos de estudo e treinamento contínuo, conhecimento e prática utilizando diversas tecnologias. Além do currículo acadêmico, completei vários cursos especializados que reforçaram minhas habilidades técnicas e práticas. Estou em busca de minha primeira oportunidade profissional para aplicar meus conhecimentos e aprender com projetos desafiadores. Tenho uma atitude proativa, não apenas realizo minhas tarefas com dedicação, mas também me empenho em entender o contexto e as necessidades da empresa para contribuir de maneira eficaz. Tenho vontade e estou muito interessado em conseguir minha primeira oportunidade e isso me impulsiona a superar obstáculos e a buscar soluções criativas e práticas."
+  const textObj = 'Busco uma oportunidade de estágio na área de desenvolvimento de software, onde possa aplicar e aprimorar meus conhecimentos técnicos em tecnologias modernas, colaborando em projetos inovadores e contribuindo para o crescimento da empresa.'
   useEffect(()=>{
 
   },[theme])
@@ -137,48 +140,33 @@ function App() {
             <button onClick={() => updateTheme()} className='btn bg-transparent align-content-center'><img width="32px" src={theme === 'dark' ? 'https://img.icons8.com/ios-filled/50/000000/sun.png' : 'https://img.icons8.com/ios-filled/50/000000/moon-symbol.png'} alt="Logo" /> </button>
           </div>
         </div>
-        <h4 className={'text-'+colors.titles}>Seja bem-vindo a minha página!</h4>
+        <Text text='Seja bem-vindo a minha página!' colors={colors} type='title'/>
       </div>
       <div className='d-flex align-items-center flex-column justify-content-center w-100 text-center my-5 gap-5 animate__animated animate__bounceInDown'>
         <h3 className={'text-'+colors.titles}>Sobre Mim</h3>
         <div className='d-flex flex-column text-start justify-content-center align-items-center gap-2'>
-          <p className={theme === 'dark' ? "text-light user-select-none text-break text-sobre" : "text-dark user-select-none text-break text-sobre"}>
-            Meu nome é João Victor Fernandes Martins sou um estudante de Sistemas de Informação, atualmente no 4º período da faculdade UniFOA.
-            Tenho paixão por
-            tecnologia e programação, com foco em desenvolvimento de software , engenharia de sistemas e área de
-            suporte de TI. Venho adquirindo atraves desses anos de estudo e treinamento contínuo, conhecimento e
-            prática utilizando diversas tecnologias.
-            Além do currículo acadêmico, completei vários cursos especializados que reforçaram minhas habilidades
-            técnicas e práticas. Estou em busca de minha primeira oportunidade profissional para aplicar meus
-            conhecimentos e aprender com projetos desafiadores. Tenho uma atitude proativa, não apenas realizo
-            minhas tarefas com dedicação, mas também me empenho em entender o contexto e as necessidades da
-            empresa para contribuir de maneira eficaz. Tenho vontade e estou muito interessado em conseguir minha
-            primeira oportunidade e isso me impulsiona a superar obstáculos e a buscar soluções criativas e práticas.
-          </p>
+          <Text text={textSobre} colors={colors} type='text'/>
           <div className='d-flex gap-3'>
             <a target='_blank' href="https://www.linkedin.com/in/jfmartinss21/"><img src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="Github" width="32px" className='icon1' /></a>
             <a target='_blank' href="https://github.com/jfmartinsvred1"><img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="Github" width="32px" className='icon2' /></a>
           </div>
-
         </div>
       </div>
       <div id='techs' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className={'text-'+colors.titles}>Tecnologias Conhecidas</h4>
+        <Text text='Tecnologias Conhecidas' colors={colors} type='title'/>
         <Techs techsO={techs} />
       </div>
       <div id='certifications' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className={'text-'+colors.titles}>Meus Cursos E Certificados</h4>
+        <Text text='Meus Cursos E Certificados' colors={colors} type='title'/>
         <Certifications colors={colors}  certifications={certifications} />
       </div>
       <div id='repos' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className={'text-'+colors.titles}>Meus Repositórios</h4>
+        <Text text='Meus Repositórios' colors={colors} type='title'/>
         <Repos colors={colors} theme={theme} repos={gitHubRepos} />
       </div>
       <div id='obj' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <h4 className={'text-'+colors.titles}>Objetivos</h4>
-        <p className={"user-select-none text-break text-sobre text-"+colors.texts}> 
-            Meu objetivo atualmente é ingressar em um estágio na area de desenvolvimento de sofware.
-        </p>
+        <Text text='Objetivos' colors={colors} type='title'/>
+        <Text text={textObj} colors={colors} type='text'/>
       </div>
     </div>
   )
