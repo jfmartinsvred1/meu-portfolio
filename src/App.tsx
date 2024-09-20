@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { searchRepos } from './services/apiService';
 import { CertificationT, ReposGit } from './types';
 import Repos from './components/repos';
 import Techs from './components/techs';
@@ -8,6 +7,8 @@ import Certifications from './components/certifications';
 import 'animate.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Text from './components/text';
+import stockBucket1 from './assets/images/StockzBucketz-0.png'
+import stockBucket2 from './assets/images/StockzBucketz-1.png'
 
 export type Infos = {
   about: string,
@@ -27,16 +28,25 @@ export type Colors = {
 }
 function App() {
 
-  const [gitHubRepos, setGitHubRepos] = useState<ReposGit[]>([]);
 
   const [theme, setTheme] = useState<string>('dark');
 
   const colors: Colors = {
     titles: theme === 'dark' ? 'light' : '"#343a40"',
     texts: theme === 'dark' ? 'light' : 'secondary',
-    background: theme === 'dark' ? "#343a40" : 'white',
+    background: theme === 'dark' ? "#192734" : '#fafafa',
     containers: theme === 'dark' ? 'dark' : "light"
   }
+  const reposGit:ReposGit[]=[
+    {
+      photo:[stockBucket1,stockBucket2],
+      name:"StockzBucketz",
+      html_url:"https://github.com/jfmartinsvred1/StockzBucketz",
+      language:"Typescript",
+      description:"StockzBucketz é uma aplicação para gerenciamento de portfólios de ações, utilizando React, .NET 8, e Firebase."
+    },
+    
+  ]
 
   const techs: TechO[] = [
     { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", name: "C#" },
@@ -60,49 +70,49 @@ function App() {
     }
   ];
   const otherCertifications: CertificationT[] = [
-    { id: 1, name: "Docker: criando e gerenciando containers", link: "https://cursos.alura.com.br/certificate/d31def31-2ebd-45e2-b358-25d402a48e33?lang=pt_BR" },
-    { id: 2, name: "REDES: DOS CONCEITOS INICIAIS À CRIAÇÃO DE UMA INTRANET", link: "https://cursos.alura.com.br/certificate/8f187814-31c2-4d10-bbd1-6abff6b542c3?lang=pt_BR" },
-    { id: 3, name: "TERMINAL: APRENDA COMANDOS PARA EXECUTAR TAREFAS", link: "https://cursos.alura.com.br/certificate/16e0c197-6bd0-4fa1-a922-cde00a76f55d?lang=pt_BR" },
-    { id: 4, name: "GIT E GITHUB: CONTROLE E COMPARTILHE SEU CÓDIGO", link: "https://cursos.alura.com.br/certificate/0a85e438-750a-45ad-b168-a07459f1b4b9?lang=pt_BR" },
-    { id: 5, name: "SQL COM MYSQL: MANIPULE E CONSULTE DADOS", link: "https://cursos.alura.com.br/certificate/a1874874-670f-4c9c-a6c7-cd35735b78a3?lang=pt_BR" },
-    { id: 6, name: "HTTP: entendendo a web por baixo dos panos", link: "https://cursos.alura.com.br/certificate/6130f098-9465-4c88-a67c-a827e9793140?lang=pt_BR" },
-    { id: 7, name: "Testes em .NET: aplicando testes de integração em APIs", link: "https://cursos.alura.com.br/certificate/fd2ae54c-48ab-41d7-a6a5-c70a8db53347?lang=pt_BR" },
-    { id: 8, name: "Testes em .NET: testando integração com banco de dados", link: "https://cursos.alura.com.br/certificate/077a51dd-7033-4fef-93cc-6edb47d44c86?lang=pt_BR" },
-    { id: 9, name: "TESTES EM .NET: CRIANDO TESTES DE UNIDADE COM XUNIT", link: "https://cursos.alura.com.br/certificate/35f1980f-70d4-495f-9541-925af0513241?lang=pt_BR" },
+    { id: 1, organization:"Alura", name: "Docker: criando e gerenciando containers", link: "https://cursos.alura.com.br/certificate/d31def31-2ebd-45e2-b358-25d402a48e33?lang=pt_BR" },
+    { id: 2, organization:"Alura", name: "REDES: DOS CONCEITOS INICIAIS À CRIAÇÃO DE UMA INTRANET", link: "https://cursos.alura.com.br/certificate/8f187814-31c2-4d10-bbd1-6abff6b542c3?lang=pt_BR" },
+    { id: 3, organization:"Alura", name: "TERMINAL: APRENDA COMANDOS PARA EXECUTAR TAREFAS", link: "https://cursos.alura.com.br/certificate/16e0c197-6bd0-4fa1-a922-cde00a76f55d?lang=pt_BR" },
+    { id: 4, organization:"Alura", name: "GIT E GITHUB: CONTROLE E COMPARTILHE SEU CÓDIGO", link: "https://cursos.alura.com.br/certificate/0a85e438-750a-45ad-b168-a07459f1b4b9?lang=pt_BR" },
+    { id: 5, organization:"Alura", name: "SQL COM MYSQL: MANIPULE E CONSULTE DADOS", link: "https://cursos.alura.com.br/certificate/a1874874-670f-4c9c-a6c7-cd35735b78a3?lang=pt_BR" },
+    { id: 6, organization:"Alura", name: "HTTP: entendendo a web por baixo dos panos", link: "https://cursos.alura.com.br/certificate/6130f098-9465-4c88-a67c-a827e9793140?lang=pt_BR" },
+    { id: 7, organization:"Alura", name: "Testes em .NET: aplicando testes de integração em APIs", link: "https://cursos.alura.com.br/certificate/fd2ae54c-48ab-41d7-a6a5-c70a8db53347?lang=pt_BR" },
+    { id: 8, organization:"Alura", name: "Testes em .NET: testando integração com banco de dados", link: "https://cursos.alura.com.br/certificate/077a51dd-7033-4fef-93cc-6edb47d44c86?lang=pt_BR" },
+    { id: 9, organization:"Alura", name: "TESTES EM .NET: CRIANDO TESTES DE UNIDADE COM XUNIT", link: "https://cursos.alura.com.br/certificate/35f1980f-70d4-495f-9541-925af0513241?lang=pt_BR" },
 
   ];
 
   const backendCetifications: CertificationT[] = [
-    { id: 1, name: "C#: APRENDA A CRIAR TESTES LIMPOS COM BOAS PRÁTICAS", link: "https://cursos.alura.com.br/certificate/81c50c4b-3183-4c01-84f5-a161c83899e1?lang=pt_BR" },
-    { id: 2, name: "C#: consumindo API, gravando arquivos e utilizando o LINQ", link: "https://cursos.alura.com.br/certificate/f17f9d70-9b12-40b1-8ff7-1d7a22c76c1a?lang=pt_BR" },
-    { id: 3, name: "C#: APLICANDO A ORIENTAÇÃO A OBJETOS", link: "https://cursos.alura.com.br/certificate/c4491b35-890d-4b89-b8bd-0ef50ac8fae1?lang=pt_BR" },
-    { id: 4, name: ".NET 6 E IDENTITY: IMPLEMENTANDO CONTROLE DE USUÁRIO", link: "https://cursos.alura.com.br/certificate/35c65d85-7ec9-4e2e-bef9-f99312c9f518?lang=pt_BR" },
-    { id: 5, name: ".NET 6: RELACIONANDO ENTIDADES", link: "https://cursos.alura.com.br/certificate/809a9668-b2e2-477e-a786-095b921761a2?lang=pt_BR" },
-    { id: 6, name: ".NET 6: criando uma web API", link: "https://cursos.alura.com.br/certificate/12e5dec1-0218-4037-a63b-8278c869c55b?lang=pt_BR" },
-    { id: 7, name: "ASP.NET CORE: CRIE APLICAÇÕES COM C#, .NET, ENTITY FRAMEWORK E LINQ", link: "https://cursos.alura.com.br/degree/certificate/da3842a0-1c44-496f-ba38-3ac6d3b71763?lang=pt_BR" },
-    { id: 8, name: "C# REFATORAÇÃO PARTE 2: REFATORAÇÕES BASEADAS EM ORIENTAÇÃO A OBJETOS.", link: "https://cursos.alura.com.br/certificate/2c79922f-dfc6-402a-80ae-2233d34f7686?lang=pt_BR" },
-    { id: 9, name: "C# REFATORAÇÃO PARTE 3: HIERARQUIAS DE CLASSES", link: "https://cursos.alura.com.br/certificate/17195c37-6aee-4df3-b371-4d9a8fe4b6cd?lang=pt_BR" },
-    { id: 10, name: "C# Refatoração Parte 1: praticando refatoração de código", link: "https://cursos.alura.com.br/certificate/cb27fd6d-dae4-434b-975f-f123afd35f17" },
-    { id: 11, name: "C# COMPLETO Programação Orientada a Objetos + Projetos", link: "https://www.udemy.com/certificate/UC-5cfb587e-a6c8-40e8-b6cd-8d4789c771b7/" },
-    { id: 12, name: "C#: dominando Orientação a Objetos", link: "https://cursos.alura.com.br/certificate/9d5b1631-8bdc-443f-98bb-edc1c3dc8076?lang=pt_BR" },
-    { id: 13, name: "Microsserviços: padrões de projeto", link: "https://cursos.alura.com.br/certificate/0e8dcf09-8758-448d-9010-7a143f395d4e?lang=pt_BR" },
-    { id: 14, name: "Entity Framework Core: banco de dados de forma eficiente", link: "https://cursos.alura.com.br/certificate/000cefaf-a87d-4b45-b339-969cff896a98?lang=pt_BR" },
-    { id: 15, name: "APRENDA A PROGRAMAR EM C# COM ORIENTAÇÃO A OBJETOS", link: "https://cursos.alura.com.br/degree/certificate/1570289d-734f-4073-974d-64fb0446d503?lang=pt_BR" },
+    { id: 1, organization:"Alura", name: "C#: APRENDA A CRIAR TESTES LIMPOS COM BOAS PRÁTICAS", link: "https://cursos.alura.com.br/certificate/81c50c4b-3183-4c01-84f5-a161c83899e1?lang=pt_BR" },
+    { id: 2, organization:"Alura", name: "C#: consumindo API, gravando arquivos e utilizando o LINQ", link: "https://cursos.alura.com.br/certificate/f17f9d70-9b12-40b1-8ff7-1d7a22c76c1a?lang=pt_BR" },
+    { id: 3, organization:"Alura", name: "C#: APLICANDO A ORIENTAÇÃO A OBJETOS", link: "https://cursos.alura.com.br/certificate/c4491b35-890d-4b89-b8bd-0ef50ac8fae1?lang=pt_BR" },
+    { id: 4, organization:"Alura", name: ".NET 6 E IDENTITY: IMPLEMENTANDO CONTROLE DE USUÁRIO", link: "https://cursos.alura.com.br/certificate/35c65d85-7ec9-4e2e-bef9-f99312c9f518?lang=pt_BR" },
+    { id: 5, organization:"Alura", name: ".NET 6: RELACIONANDO ENTIDADES", link: "https://cursos.alura.com.br/certificate/809a9668-b2e2-477e-a786-095b921761a2?lang=pt_BR" },
+    { id: 6, organization:"Alura", name: ".NET 6: criando uma web API", link: "https://cursos.alura.com.br/certificate/12e5dec1-0218-4037-a63b-8278c869c55b?lang=pt_BR" },
+    { id: 7, organization:"Alura", name: "ASP.NET CORE: CRIE APLICAÇÕES COM C#, .NET, ENTITY FRAMEWORK E LINQ", link: "https://cursos.alura.com.br/degree/certificate/da3842a0-1c44-496f-ba38-3ac6d3b71763?lang=pt_BR" },
+    { id: 8, organization:"Alura", name: "C# REFATORAÇÃO PARTE 2: REFATORAÇÕES BASEADAS EM ORIENTAÇÃO A OBJETOS.", link: "https://cursos.alura.com.br/certificate/2c79922f-dfc6-402a-80ae-2233d34f7686?lang=pt_BR" },
+    { id: 9, organization:"Alura", name: "C# REFATORAÇÃO PARTE 3: HIERARQUIAS DE CLASSES", link: "https://cursos.alura.com.br/certificate/17195c37-6aee-4df3-b371-4d9a8fe4b6cd?lang=pt_BR" },
+    { id: 10, organization:"Alura", name: "C# Refatoração Parte 1: praticando refatoração de código", link: "https://cursos.alura.com.br/certificate/cb27fd6d-dae4-434b-975f-f123afd35f17" },
+    { id: 11, organization:"Alura", name: "C# COMPLETO Programação Orientada a Objetos + Projetos", link: "https://www.udemy.com/certificate/UC-5cfb587e-a6c8-40e8-b6cd-8d4789c771b7/" },
+    { id: 12, organization:"Alura", name: "C#: dominando Orientação a Objetos", link: "https://cursos.alura.com.br/certificate/9d5b1631-8bdc-443f-98bb-edc1c3dc8076?lang=pt_BR" },
+    { id: 13, organization:"Alura", name: "Microsserviços: padrões de projeto", link: "https://cursos.alura.com.br/certificate/0e8dcf09-8758-448d-9010-7a143f395d4e?lang=pt_BR" },
+    { id: 14, organization:"Alura", name: "Entity Framework Core: banco de dados de forma eficiente", link: "https://cursos.alura.com.br/certificate/000cefaf-a87d-4b45-b339-969cff896a98?lang=pt_BR" },
+    { id: 15, organization:"Udemy", name: "APRENDA A PROGRAMAR EM C# COM ORIENTAÇÃO A OBJETOS", link: "https://cursos.alura.com.br/degree/certificate/1570289d-734f-4073-974d-64fb0446d503?lang=pt_BR" },
   ]
   const frontendCetifications: CertificationT[] = [
-    { id: 1, name: "TYPESCRIPT PARTE 2: AVANÇANDO NA LINGUAGEM", link: "https://cursos.alura.com.br/certificate/8f0710e9-1890-412b-a366-828763f2586b?lang=pt_BR" },
-    { id: 2, name: "REACT: COMO OS COMPONENTES FUNCIONAM", link: "https://cursos.alura.com.br/certificate/fe6ca3ee-e639-4e74-92c5-e31431bae580?lang=pt_BR" },
-    { id: 3, name: "REACT: DESENVOLVENDO COM JAVASCRIPT", link: "https://cursos.alura.com.br/certificate/6a41a218-6cd6-4a2f-8106-879c3f23dd5e?lang=pt_BR" },
-    { id: 4, name: "JavaScript: manipulando elementos no DOM", link: "https://cursos.alura.com.br/certificate/54caedde-e28b-45c0-b951-f3e3269aa33c?lang=pt_BR" },
-    { id: 5, name: "ANGULAR: CICLO DE VIDA", link: "https://cursos.alura.com.br/certificate/51ba48d6-9736-490b-8f12-b96960bf427a?lang=pt_BR" },
-    { id: 6, name: "ANGULAR: FORMULÁRIOS ORIENTADOS A TEMPLATES", link: "https://cursos.alura.com.br/certificate/0f54226c-5dd7-476c-8a9c-f9a3144a7a92?lang=pt_BR" },
-    { id: 7, name: "Angular 14: aplique os conceitos e desenvolva seu primeiro CRUD", link: "https://cursos.alura.com.br/certificate/e2d1bfc5-20ac-4403-8bfe-77cf9959cc4c?lang=pt_BR" },
-    { id: 8, name: "Formação Melhore sua experiência de desenvolvimento com TypeScript", link: "https://cursos.alura.com.br/degree/certificate/4aeede97-416b-40fb-a1e4-9bfaf51f2c53" },
-    { id: 9, name: "TYPESCRIPT PARTE 1: EVOLUINDO SEU JAVASCRIPT", link: "https://cursos.alura.com.br/certificate/98e42485-d578-48f3-8051-e9091815c021?lang=pt_BR" },
-    { id: 10, name: "JAVASCRIPT PARA WEB: CRIE PÁGINAS DINÂMICAS", link: "https://cursos.alura.com.br/certificate/58689497-1393-4115-b007-33f8f57c8d82?lang=pt_BR" },
-    { id: 11, name: "JAVASCRIPT: EXPLORANDO A LINGUAGEM", link: "https://cursos.alura.com.br/certificate/55bce2ce-1896-4710-90ec-150bfc88fb2c?lang=pt_BR" },
-    { id: 12, name: "JAVASCRIPT: PROGRAMANDO A ORIENTAÇÃO A OBJETOS", link: "https://cursos.alura.com.br/certificate/1706c088-ed66-4425-b1f9-19341b1de457?lang=pt_BR" },
-    { id: 13, name: "HTML e CSS", link: "https://www.udemy.com/certificate/UC-f6f9cac3-9718-4a61-a540-b24999e9340a/" },
+    { id: 1, organization:"Alura",name: "TYPESCRIPT PARTE 2: AVANÇANDO NA LINGUAGEM", link: "https://cursos.alura.com.br/certificate/8f0710e9-1890-412b-a366-828763f2586b?lang=pt_BR" },
+    { id: 2, organization:"Alura",name: "REACT: COMO OS COMPONENTES FUNCIONAM", link: "https://cursos.alura.com.br/certificate/fe6ca3ee-e639-4e74-92c5-e31431bae580?lang=pt_BR" },
+    { id: 3, organization:"Alura",name: "REACT: DESENVOLVENDO COM JAVASCRIPT", link: "https://cursos.alura.com.br/certificate/6a41a218-6cd6-4a2f-8106-879c3f23dd5e?lang=pt_BR" },
+    { id: 4, organization:"Alura",name: "JavaScript: manipulando elementos no DOM", link: "https://cursos.alura.com.br/certificate/54caedde-e28b-45c0-b951-f3e3269aa33c?lang=pt_BR" },
+    { id: 5, organization:"Alura",name: "ANGULAR: CICLO DE VIDA", link: "https://cursos.alura.com.br/certificate/51ba48d6-9736-490b-8f12-b96960bf427a?lang=pt_BR" },
+    { id: 6, organization:"Alura",name: "ANGULAR: FORMULÁRIOS ORIENTADOS A TEMPLATES", link: "https://cursos.alura.com.br/certificate/0f54226c-5dd7-476c-8a9c-f9a3144a7a92?lang=pt_BR" },
+    { id: 7, organization:"Alura",name: "Angular 14: aplique os conceitos e desenvolva seu primeiro CRUD", link: "https://cursos.alura.com.br/certificate/e2d1bfc5-20ac-4403-8bfe-77cf9959cc4c?lang=pt_BR" },
+    { id: 8, organization:"Alura",name: "Formação Melhore sua experiência de desenvolvimento com TypeScript", link: "https://cursos.alura.com.br/degree/certificate/4aeede97-416b-40fb-a1e4-9bfaf51f2c53" },
+    { id: 9, organization:"Alura",name: "TYPESCRIPT PARTE 1: EVOLUINDO SEU JAVASCRIPT", link: "https://cursos.alura.com.br/certificate/98e42485-d578-48f3-8051-e9091815c021?lang=pt_BR" },
+    { id: 10, organization:"Alura",name: "JAVASCRIPT PARA WEB: CRIE PÁGINAS DINÂMICAS", link: "https://cursos.alura.com.br/certificate/58689497-1393-4115-b007-33f8f57c8d82?lang=pt_BR" },
+    { id: 11, organization:"Alura",name: "JAVASCRIPT: EXPLORANDO A LINGUAGEM", link: "https://cursos.alura.com.br/certificate/55bce2ce-1896-4710-90ec-150bfc88fb2c?lang=pt_BR" },
+    { id: 12, organization:"Alura",name: "JAVASCRIPT: PROGRAMANDO A ORIENTAÇÃO A OBJETOS", link: "https://cursos.alura.com.br/certificate/1706c088-ed66-4425-b1f9-19341b1de457?lang=pt_BR" },
+    { id: 13, organization:"Udemy", name: "HTML e CSS", link: "https://www.udemy.com/certificate/UC-f6f9cac3-9718-4a61-a540-b24999e9340a/" },
   ]
 
   const [certificationPage, setCertificationPage] = useState(0)
@@ -139,9 +149,6 @@ function App() {
       setTheme('dark')
     }
   }
-  useEffect(() => {
-    searchRepos().then((data: ReposGit[]) => { setGitHubRepos(data) }).catch((err) => console.log(err))
-  }, [])
   return (
     <div className='d-flex flex-column justify-content-between align-items-center p-2 secondary app '
       style={{ backgroundColor: colors.background }}
@@ -154,7 +161,7 @@ function App() {
           <div className='menu gap-2'>
             <h6 className='linkMenu'><a className={"text-decoration-none user-select-none text-break text-" + colors.texts} href='#techs'>Tecnologias Conhecidas</a></h6>
             <h6 className='linkMenu'><a className={"text-decoration-none user-select-none text-break text-" + colors.texts} href='#certifications'>Meus Cursos</a></h6>
-            <h6 className='linkMenu'><a className={"text-decoration-none user-select-none text-break text-" + colors.texts} href='#repos'>Meus Repositórios</a></h6>
+            <h6 className='linkMenu'><a className={"text-decoration-none user-select-none text-break text-" + colors.texts} href='#repos'>Meus Projetos</a></h6>
             <h6 className='linkMenu'><a className={"text-decoration-none user-select-none text-break text-" + colors.texts} href='#obj'>Meus Objetivos</a></h6>
           </div>
           <Dropdown className='iconHeader iconMenu '>
@@ -165,7 +172,7 @@ function App() {
             <Dropdown.Menu>
               <Dropdown.Item href="#techs" >Tecnologias Conhecidas</Dropdown.Item>
               <Dropdown.Item href="#certifications" >Meus Cursos E Certificados</Dropdown.Item>
-              <Dropdown.Item href="#repos" >Meus Repositórios</Dropdown.Item>
+              <Dropdown.Item href="#repos" >Meus Projetos</Dropdown.Item>
               <Dropdown.Item href="#obj" >Meus Objetivos</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -208,8 +215,8 @@ function App() {
         <Certifications colors={colors} certifications={arrayCertification[certificationPage].array} />
       </div>
       <div id='repos' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <Text text='Meus Repositórios' colors={colors} type='title' />
-        <Repos colors={colors} theme={theme} repos={gitHubRepos} />
+        <Text text='Meus Projetos' colors={colors} type='title' />
+        <Repos colors={colors} theme={theme} repos={reposGit} />
       </div>
     </div>
   )
