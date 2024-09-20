@@ -9,3 +9,22 @@
 .iconHeader:hover{
     transform: scale(1.4);
 }
+.iconMenu{
+    display: none;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 800px) {
+    .iconMenu{
+        display: block;
+    }
+    .menu{
+        display: none;
+    }
+}
+
+.linkMenu:hover{
+    transform: translateX(2em);
+}
