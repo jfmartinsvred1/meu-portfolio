@@ -13,6 +13,11 @@ const Text = ({text,colors, type}:TextProps) =>{
             {text}
         </p>
         :
+        type==='contact'?
+        <p className={"text-break text-sobre text-"+colors.texts}>
+        {text}
+        </p>
+        :
         <h4 className={'user-select-none text-'+colors.titles}>{text}</h4>
     )
 }

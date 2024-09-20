@@ -175,7 +175,16 @@ function App() {
             <a target='_blank' href="https://www.linkedin.com/in/jfmartinss21/"><img src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="Github" width="32px" className='icon1' /></a>
             <a target='_blank' href="https://github.com/jfmartinsvred1"><img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="Github" width="32px" className='icon2' /></a>
           </div>
+          <div className='my-3 d-flex flex-column gap-3 align-items-center'>
+            <Text type='title' colors={colors} text='Contato'/>
+            <Text type='contact' colors={colors} text='jfmartinsvred@gmail.com'/>
+            <Text type='contact' colors={colors} text='(24)993111627'/>
+          </div>
         </div>
+      </div>
+      <div id='obj' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
+        <Text text='Objetivos' colors={colors} type='title'/>
+        <Text text={textObj} colors={colors} type='text'/>
       </div>
       <div id='techs' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
         <Text text='Tecnologias Conhecidas' colors={colors} type='title'/>
@@ -190,14 +199,9 @@ function App() {
         </div>
         <Certifications colors={colors}  certifications={arrayCertification[certificationPage].array}/>
       </div>
-      
       <div id='repos' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
         <Text text='Meus Repositórios' colors={colors} type='title'/>
         <Repos colors={colors} theme={theme} repos={gitHubRepos} />
-      </div>
-      <div id='obj' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
-        <Text text='Objetivos' colors={colors} type='title'/>
-        <Text text={textObj} colors={colors} type='text'/>
       </div>
     </div>
   )
