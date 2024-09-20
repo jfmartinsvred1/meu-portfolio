@@ -114,7 +114,12 @@ function App() {
   ]
 
   function updateCertificationPage(number:number){
-    if((certificationPage==2 && number===+1)||(certificationPage==0 && number===-1)){
+    if(certificationPage==(arrayCertification.length-1) && number===+1){
+      setCertificationPage(0)
+      return
+    }
+    if(certificationPage==0 && number===-1){
+      setCertificationPage(arrayCertification.length-1)
       return
     }
     setCertificationPage(certificationPage+number)
@@ -177,10 +182,11 @@ function App() {
         <Techs techsO={techs} colors={colors}/>
       </div>
       <div id='certifications' className='d-flex flex-column my-5 justify-content-center align-items-center gap-5'>
+      <Text text="Cursos e certificados" colors={colors} type='title' />
         <div className='d-flex gap-4'>
-          <p onClick={()=>{updateCertificationPage(-1)}} className={"seletorPage user-select-none text-"+colors.texts}>{"<"}</p>
+          <h6 onClick={()=>{updateCertificationPage(-1)}} className={"seletorPage user-select-none text-"+colors.texts}>{"<"}</h6>
           <Text text={arrayCertification[certificationPage].name} colors={colors} type='title' />
-          <p onClick={()=>{updateCertificationPage(+1)}} className={"seletorPage user-select-none text-"+colors.texts}>{">"}</p>
+          <h6 onClick={()=>{updateCertificationPage(+1)}} className={"seletorPage user-select-none text-"+colors.texts}>{">"}</h6>
         </div>
         <Certifications colors={colors}  certifications={arrayCertification[certificationPage].array}/>
       </div>
