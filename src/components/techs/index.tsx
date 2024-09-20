@@ -1,14 +1,15 @@
-import { TechO } from "../../App"
+import { Colors, TechO } from "../../App"
 import Tech from "../tech"
 import './Techs.css'
 type TechsProps={
-    techsO:TechO[]
+    techsO:TechO[],
+    colors:Colors
 }
-const Techs = ({techsO}:TechsProps) =>{
+const Techs = ({techsO,colors}:TechsProps) =>{
     return(
         <div className="d-flex flex-wrap gap-5 techs">
             {techsO.map((t, index)=>(
-                <Tech tech={t} key={index}/>
+                <Tech colors={colors} tech={t} key={index}/>
             ))}
         </div>
     )

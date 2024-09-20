@@ -5,6 +5,7 @@ export type ReposGit={
     language:string
 }
 export type CertificationT={
+    id:number,
     name:string,
     link:string
 }

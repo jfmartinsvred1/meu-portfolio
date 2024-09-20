@@ -8,7 +8,6 @@ type CertificationProps={
 }
 const Certification = ({certification,colors}:CertificationProps) =>{
 
-    
     function handleClick() {
         if (certification.link) {
             window.open(certification.link, '_blank');

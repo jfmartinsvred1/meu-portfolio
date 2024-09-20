@@ -13,7 +13,7 @@ const Text = ({text,colors, type}:TextProps) =>{
             {text}
         </p>
         :
-        <h4 className={'text-'+colors.titles}>{text}</h4>
+        <h4 className={'user-select-none text-'+colors.titles}>{text}</h4>
     )
 }
 export default Text

@@ -1,0 +1,6 @@
+.seletorPage:hover{
+    transform: scale(1.25);
+}
+.seletorPage{
+    cursor: pointer;
+}
