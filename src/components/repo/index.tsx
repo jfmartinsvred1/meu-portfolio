@@ -13,18 +13,18 @@ type RepoProps = {
 
 
 const Repo = ({ repo, showMoreRepo, colors }: RepoProps) => {
-    const [photo,setPhoto]=useState(0);
-    function updatePhoto(number:number){
-        const max= repo.photo.length;
-        if(photo===(max-1) && number===+1){
+    const [photo, setPhoto] = useState(0);
+    function updatePhoto(number: number) {
+        const max = repo.photo.length;
+        if (photo === (max - 1) && number === +1) {
             setPhoto(0)
             return
         }
-        if(photo===0 && number===-1){
-            setPhoto(max-1)
+        if (photo === 0 && number === -1) {
+            setPhoto(max - 1)
             return
         }
-        setPhoto(photo+number)
+        setPhoto(photo + number)
     }
     return (
         <>
@@ -32,11 +32,13 @@ const Repo = ({ repo, showMoreRepo, colors }: RepoProps) => {
                 <h5 className="text-break">{repo.name}</h5>
                 <a className={"linkRepo text-decoration-none text-" + colors.texts} target='_blank' href={repo.html_url}>Ir para o repo</a>
                 <Text colors={colors} text={repo.description} type="text" />
-                <div className="imgs">
-                    <p onClick={() => { updatePhoto(-1) }} className={"user-select-none text-" + colors.texts + " "}>{"<"}</p>
-                    <img width="512px" src={repo.photo[photo]} alt="Foto Do Projeto" />
-                    <p onClick={() => { updatePhoto(+1) }} className={"user-select-none text-" + colors.texts + " "}>{">"}</p>
-                </div>
+                {repo.photo.length > 0 &&
+                    <div className="imgs">
+                        <p onClick={() => { updatePhoto(-1) }} className={"user-select-none text-" + colors.texts + " selectorPhoto"}>{"<"}</p>
+                        <img width="512px" src={repo.photo[photo]} alt="Foto Do Projeto" />
+                        <p onClick={() => { updatePhoto(+1) }} className={"user-select-none text-" + colors.texts + " selectorPhoto"}>{">"}</p>
+                    </div>
+                }
                 <p>Linguagem: {repo.language}</p>
 
             </div>

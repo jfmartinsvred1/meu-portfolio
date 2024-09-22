@@ -45,7 +45,27 @@ function App() {
       language:"Typescript",
       description:"StockzBucketz é uma aplicação para gerenciamento de portfólios de ações, utilizando React, .NET 8 e Firebase."
     },
-    
+    {
+      photo:[],
+      name:"AutenticacaoDoisFatoresComEmail",
+      html_url:"https://github.com/jfmartinsvred1/AutenticacaoDoisFatoresComEmail",
+      language:"C#",
+      description:"Bem-vindo à API de Autenticação de Dois Fatores desenvolvida em .NET Core. Esta API serve como um exemplo prático para entender e implementar um sistema robusto de autenticação de dois fatores, utilizando o envio de códigos via email para garantir a identidade do usuário."
+    },
+    {
+      photo:[],
+      name:"AutenticacaoDoisFatoresComEmail",
+      html_url:"https://github.com/jfmartinsvred1/AutenticacaoDeDoisFatores",
+      language:"C#",
+      description:"Projeto com o objetivo de criar uma API responsável por cadastrar um usuário, autenticá-lo por meio de um QR Code e permitir o login apenas se for autenticado."
+    },
+    {
+      photo:[],
+      name:"WebCrawler",
+      html_url:"https://github.com/jfmartinsvred1/WebCrawler",
+      language:"C#",
+      description:"Bem-vindo ao repositório do WebCrawler em C#! Este projeto é uma aplicação robusta de WebCrawler desenvolvida em C# com o objetivo de automatizar a coleta de dados de páginas web. A aplicação é projetada para ser eficiente, escalável e fácil de usar, oferecendo uma solução completa para suas necessidades de extração de dados."
+    },
   ]
 
   const techs: TechO[] = [
