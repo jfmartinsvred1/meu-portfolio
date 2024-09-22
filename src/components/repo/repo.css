@@ -26,7 +26,9 @@
     }
 }
 
-
+.selectorPhoto{
+    cursor: pointer;
+}
 .linkRepo{
     text-decoration: none;
 }
